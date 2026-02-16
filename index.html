@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Native Shift Method Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* BODY */
+body {
+  background: #0f172a;
+  color: white;
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: #020617;
+  padding: 20px;
+  border-right: 2px solid #1e293b;
+}
+.sidebar h2 {
+  color: #38bdf8;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.sidebar button {
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0;
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.sidebar button:hover {
+  background: #38bdf8;
+  color: black;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+/* PROGRESS BAR */
+.progress-box {
+  margin-bottom: 15px;
+}
+.progress-bar {
+  width: 100%;
+  background: #1e293b;
+  border-radius: 10px;
+  height: 12px;
+}
+.progress-fill {
+  width: 0%;
+  height: 12px;
+  background: #22c55e;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* CONTENT */
+.tab-content {
+  background: #111827;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+/* SECTIONS */
+.section {
+  margin-top: 20px;
+  padding: 12px;
+  border-left: 5px solid #38bdf8;
+  background: #020617;
+  border-radius: 10px;
+}
+
+.correct { color: #22c55e; }
+.wrong { color: #ef4444; }
+.literal { color: #eab308; }
+
+/* INPUTS */
+input {
+  padding: 10px;
+  width: 70%;
+  border-radius: 6px;
+  border: none;
+  margin-top: 8px;
+}
+button.action {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #38bdf8;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 8px;
+}
+button.action:hover {
+  background: #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>Native Shift Method™</h2>
+  <button onclick="loadTab(1)">Tab 1 – Daily Life</button>
+  <button onclick="loadTab(2)">Tab 2 – Travel</button>
+  <button onclick="loadTab(3)">Tab 3 – Work</button>
+  <button onclick="loadTab(4)">Tab 4 – Social</button>
+  <button onclick="loadTab(5)">Tab 5 – Shopping</button>
+  <button onclick="loadTab(6)">Tab 6 – Emotions</button>
+  <button onclick="loadTab(7)">Tab 7 – Slang</button>
+  <button onclick="loadTab(8)">Final Challenge Lab</button>
+</div>
+
+<!-- MAIN AREA -->
+<div class="main">
+
+<div class="progress-box">
+  <p>Progress: <span id="progressText">0%</span></p>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
+
+<div class="tab-content" id="content">
+  <h1>Welcome to Native Shift Method™</h1>
+  <p>Select a tab to start immersion.</p>
+</div>
+
+</div>
+
+<script>
+
+/* GLOBAL PROGRESS */
+let progress = 0;
+
+/* LOAD TABS */
+function loadTab(tab) {
+  if (tab === 1) tab1();
+  else {
+    document.getElementById("content").innerHTML = `
+      <h2>Coming soon...</h2>
+      <p>This tab will be built using the Native Shift Method™ structure.</p>
+    `;
+  }
+}
+
+/* TAB 1 CONTENT */
+function tab1() {
+  document.getElementById("content").innerHTML = `
+  <h1>TAB 1 – What can I get you?</h1>
+
+  <div class="section">
+    <h3>🇧🇷 Brazilian Walkthrough</h3>
+    <p>Você entra na padaria do José. Ele pergunta:</p>
+    <b>“O que você vai querer?”</b>
+  </div>
+
+  <div class="section">
+    <h3>🇺🇸 Native Walkthrough</h3>
+    <p>The clerk smiles and asks:</p>
+    <b>“What can I get you?”</b>
+  </div>
+
+  <div class="section">
+    <h3>Guess Mode</h3>
+    <p>How would you say: <b>O que você vai querer?</b></p>
+    <input id="answer" placeholder="Type your answer here...">
+    <button class="action" onclick="checkAnswer()">Check</button>
+    <p id="feedback"></p>
+  </div>
+
+  <div class="section">
+    <h3>Reveal Expression</h3>
+    <p class="correct"><b>What can I get you?</b></p>
+  </div>
+
+  <div class="section">
+    <h3>Brain Mapping</h3>
+    <p><b>Portuguese:</b> Futuro educado (“vou querer”).</p>
+    <p><b>English:</b> Polite service phrase. Avoid direct “want”.</p>
+  </div>
+
+  <div class="section">
+    <h3>Native Alternatives</h3>
+    <ul>
+      <li>What would you like? (formal)</li>
+      <li>What can I get for you? (very polite)</li>
+      <li class="wrong">What do you want? (rude)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>MCQ Challenge</h3>
+    <p>O garçom pergunta: O que você vai querer?</p>
+    <p>A) What do you want?</p>
+    <p>B) What can I get you?</p>
+    <p>C) What you want?</p>
+    <p>D) What are you wanting?</p>
+    <p class="correct">Correct answer: B</p>
+  </div>
+  `;
+}
+
+/* AUTO CHECK SYSTEM */
+function checkAnswer() {
+  let ans = document.getElementById("answer").value.toLowerCase().trim();
+  let feedback = document.getElementById("feedback");
+
+  if (ans.includes("what can i get you")) {
+    feedback.innerHTML = "<span class='correct'>Perfect! Native and polite.</span>";
+    updateProgress(15);
+  } 
+  else if (ans.includes("what do you want")) {
+    feedback.innerHTML = "<span class='wrong'>Too direct and rude in service situations.</span>";
+  }
+  else if (ans.includes("what would you like")) {
+    feedback.innerHTML = "<span class='literal'>Correct, but more formal.</span>";
+  }
+  else {
+    feedback.innerHTML = "<span class='wrong'>Not natural. Try again.</span>";
+  }
+}
+
+/* PROGRESS UPDATE */
+function updateProgress(points) {
+  progress = Math.min(100, progress + points);
+  document.getElementById("progressFill").style.width = progress + "%";
+  document.getElementById("progressText").innerText = progress + "%";
+}
+
+</script>
+
+</body>
+</html>
