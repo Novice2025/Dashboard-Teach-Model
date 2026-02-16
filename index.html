@@ -1,3 +1,5 @@
+CHATGPT 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -258,6 +260,332 @@ function updateProgress(points) {
 </html>
 
 
+
+Inner.ai Gemini
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Native Shift Method™ Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* --- RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #0f172a; /* Slate 900 */
+  color: #e2e8f0; /* Slate 200 */
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 280px;
+  background-color: #020617; /* Slate 950 */
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #1e293b;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.brand {
+  color: #38bdf8; /* Sky 400 */
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar button:hover {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+.sidebar button.active {
+  background: #0f172a;
+  border-color: #38bdf8;
+  color: #38bdf8;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+}
+
+/* --- MAIN CONTENT AREA --- */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* HEADER SECTION */
+.top-header {
+  background: #0f172a;
+  padding: 40px 40px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid #1e293b;
+  z-index: 10;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.author-tag {
+  font-size: 1rem;
+  color: #38bdf8;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.neuro-desc {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  max-width: 700px;
+  margin: 0 auto 15px auto;
+  line-height: 1.6;
+}
+
+.subtitle-bridge {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  background: rgba(56, 189, 248, 0.1);
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* SCROLLABLE CONTENT */
+.content-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+/* TAB CONTENT CONTAINER */
+.tab-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: none; /* Hidden by default */
+  animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active-tab {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PROGRESS BAR */
+.progress-container {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #334155;
+}
+
+.progress-track {
+  flex: 1;
+  height: 10px;
+  background: #0f172a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  border-radius: 10px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-text {
+  font-weight: 700;
+  color: #38bdf8;
+  min-width: 50px;
+}
+
+/* PLACEHOLDER FOR CONTENT STRUCTURE (To be filled later) */
+.placeholder-box {
+  border: 2px dashed #334155;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  color: #64748b;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">Native Shift™</div>
+
+    <div class="nav-label">Expressões (Modules)</div>
+    <!-- Tabs named after Portuguese expressions -->
+    <button onclick="switchTab(1)" id="btn-1" class="active">1. Vou querer isso</button>
+    <button onclick="switchTab(2)" id="btn-2">2. Entendi!</button>
+    <button onclick="switchTab(3)" id="btn-3">3. Me vê um...</button>
+    <button onclick="switchTab(4)" id="btn-4">4. Pois não?</button>
+    <button onclick="switchTab(5)" id="btn-5">5. Imagina!</button>
+    <button onclick="switchTab(6)" id="btn-6">6. Combinado</button>
+    <button onclick="switchTab(7)" id="btn-7">7. Fique à vontade</button>
+
+    <div class="nav-label" style="margin-top: 20px;">Desafio Final</div>
+    <button onclick="switchTab(8)" id="btn-8" style="color: #fbbf24;">🏆 Final Lab</button>
+  </aside>
+
+  <!-- MAIN AREA -->
+  <main class="main">
+
+    <!-- HEADER (Fixed at top) -->
+    <header class="top-header">
+      <h1 class="main-title">
+        Native Shift Method™ - Neuro-linguistic 
+        <span class="author-tag">by Daby</span>
+      </h1>
+
+      <p class="neuro-desc">
+        Neuro-linguistic approaches use immersive, brain-based techniques to accelerate learning by connecting language input directly to neurological processes, behavior, and subconscious patterns.
+      </p>
+
+      <div class="subtitle-bridge">
+        🇧🇷 Brazilian cognitive bridge to native English 🌎
+      </div>
+    </header>
+
+    <!-- SCROLLABLE CONTENT AREA -->
+    <div class="content-scroll">
+
+      <!-- PROGRESS BAR (Always visible) -->
+      <div class="progress-container">
+        <span style="font-size: 0.9rem; color: #94a3b8;">Immersion Progress:</span>
+        <div class="progress-track">
+          <div class="progress-fill" id="globalProgress"></div>
+        </div>
+        <div class="progress-text" id="progressLabel">0%</div>
+      </div>
+
+      <!-- TAB 1 CONTENT -->
+      <div id="tab-1" class="tab-content active-tab">
+        <div class="placeholder-box">
+          <h2>Módulo 1: "Vou querer isso"</h2>
+          <p>Content structure loading...</p>
+        </div>
+      </div>
+
+      <!-- TAB 2 CONTENT -->
+      <div id="tab-2" class="tab-content">
+        <div class="placeholder-box">
+          <h2>Módulo 2: "Entendi!"</h2>
+          <p>Content structure loading...</p>
+        </div>
+      </div>
+
+      <!-- TAB 3 CONTENT -->
+      <div id="tab-3" class="tab-content">
+        <div class="placeholder-box">
+          <h2>Módulo 3: "Me vê um..."</h2>
+          <p>Content structure loading...</p>
+        </div>
+      </div>
+
+      <!-- (Other tabs follow same pattern) -->
+
+    </div>
+  </main>
+
+<script>
+  // Simple Tab Switching Logic
+  function switchTab(tabIndex) {
+    // 1. Remove active class from all buttons
+    document.querySelectorAll('.sidebar button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // 2. Hide all tab contents
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.classList.remove('active-tab');
+    });
+
+    // 3. Activate clicked button
+    document.getElementById(`btn-${tabIndex}`).classList.add('active');
+
+    // 4. Show corresponding content (if it exists in HTML)
+    const contentDiv = document.getElementById(`tab-${tabIndex}`);
+    if (contentDiv) {
+      contentDiv.classList.add('active-tab');
+    } else {
+      // Fallback for tabs not yet created in HTML
+      console.log("Tab content not found, creating dynamic placeholder...");
+    }
+  }
+
+  // Example Progress Update (For testing)
+  function updateProgress(percent) {
+    document.getElementById('globalProgress').style.width = percent + '%';
+    document.getElementById('progressLabel').innerText = percent + '%';
+  }
+
+  // Initialize with a little progress to show the bar working
+  setTimeout(() => updateProgress(5), 500);
+</script>
+
+</body>
+</html>
 
 
 
